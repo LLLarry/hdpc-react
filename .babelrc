@@ -1,0 +1,70 @@
+{
+	"presets": [
+		[
+			"@babel/preset-env",
+			{
+				"useBuiltIns": "usage"
+			}
+		],
+		"@babel/preset-react"
+	],
+	"plugins": [
+		[
+			"import",
+			{
+				"libraryName": "antd",
+				"libraryDirectory": "es",
+				"style": "css" // `style: true` 会加载 less 文件
+			}
+		]
+	]
+}
+/*
+react 中配置webpack
+*1、 安装 npm install --save-dev babel-loader @babel/core
+	module: {
+		rules: [
+			{ test: /\.(js|jsx)$/, exclude: /node_modules/, loader: "babel-loader" }
+		]
+	}
+	备注：这一步是将js/jsx和babel建立桥梁
+
+ 2、 安装 npm install @babel/preset-env --save-dev
+	.babelrc文件中
+
+	{
+	"presets": ["@babel/preset-env"]
+	}
+	备注：这一步是转化js语法
+
+ 3、 安装 npm install --save @babel/polyfill
+	.babelrc文件中
+	{
+	"presets": [
+		[
+			"@babel/preset-env",
+			{
+				"useBuiltIns": "usage"
+			}
+		],
+		"@babel/preset-react"
+		]
+	}
+	备注：这一步是低版本浏览器中没有最新的api如低版本IE中没有Promise ,它的作用是将最新的api，传给浏览器，让浏览器支持最新的Api ,"useBuiltIns": "usage"是按需加载需要的api
+
+4、 安装 npm install --save-dev @babel/preset-react
+	.babelrc 文件中
+
+	{
+		"presets": [
+			[
+				"@babel/preset-env",
+				{
+					"useBuiltIns": "usage"
+				}
+			],
+			"@babel/preset-react"
+		]
+	}
+	备注：支持reaxt 中的jsx语法
+*/ 
