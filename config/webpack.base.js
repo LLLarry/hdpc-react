@@ -51,6 +51,7 @@ module.exports = {
                 ignore: ['.*'] // 忽略规则。（这种写法表示将该文件夹下的所有文件都复制）
             }
         ]),
+        new webpack.NamedModulesPlugin(),
         new webpack.HotModuleReplacementPlugin() //热更新模块的插件
     ],
     // devServer: {

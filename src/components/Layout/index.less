@@ -1,6 +1,23 @@
 
 .slide {
     height: calc(100vh - 64px);
-    background-color: #fff;
-    color: pink;
+    background-color: #001529;
+    overflow-y: auto;
+    user-select: none;
+    &::-webkit-scrollbar-track-piece {
+    background: #d3dce6;
+    }
+    &::-webkit-scrollbar {
+    width: 6px;
+    }
+    &::-webkit-scrollbar-thumb {
+    background: #99a9bf;
+    border-radius: 20px;
+    }
+    .ant-layout-sider-children {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 185px;
+    }
 }

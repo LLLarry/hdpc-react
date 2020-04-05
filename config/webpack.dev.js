@@ -1,12 +1,12 @@
 const path = require('path')
-const merge= require('webpack-merge')
-const baseConfig= require('./webpack.base.js')
-const config= {
-    mode: "development", 
+const merge = require('webpack-merge')
+const baseConfig = require('./webpack.base.js')
+const config = {
+    mode: "development",
     devtool: 'cheap-module-eval-source-map',
     module: {
         rules: [
-            { 
+            {
                 test: /\.(css|less)$/,
                 use: [
                     { loader: "style-loader" },
@@ -26,8 +26,15 @@ const config= {
         hot: true,
         open: true,
         quiet: false,
+        historyApiFallback: true,
+        proxy: {
+            "/api": {
+                target: "http://www.he360.cn",
+                pathRewrite: { "^/api": "" }
+            }
+        },
         contentBase: path.resolve(__dirname, "/dist")
     },
 }
 
-module.exports= merge(baseConfig,config)
+module.exports = merge(baseConfig, config)
